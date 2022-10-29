@@ -1,4 +1,9 @@
+import { useState } from 'react';
+
 function Login() {
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+
   const handleOnSubmit = event => {
     event.preventDefault();
     const userData = {
@@ -13,11 +18,21 @@ function Login() {
       <form onSubmit={handleOnSubmit}>
         <label>
           UserName:
-          <input type="text" name="username" />
+          <input
+            type="text"
+            value={userName}
+            name="username"
+            onChange={e => setUserName(e.target.value)}
+          />
         </label>
         <label>
           Password:
-          <input type="password" name="password" />
+          <input
+            type="password"
+            value={password}
+            name="password"
+            onChange={e => setPassword(e.target.value)}
+          />
         </label>
         <button type="submit">Login</button>
       </form>
